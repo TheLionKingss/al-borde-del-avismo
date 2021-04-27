@@ -219,6 +219,21 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "demon"
     },
+    "image45": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAO7u7h4AAAAA/v7uHgAAAAD+/u4eAAAAAP7+7h4AAAAA7u7uHgAAAAARERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Book"
+    },
+    "image46": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkBAAAAAAAROREBAAAAABO5EQOAAAAQOTu7kQAAABARORERAAAAEDk7u5EAAAAAE7kRA4AAAAAROREBAAAAAAA5AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Basket"
+    },
+    "image47": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAMwAAAAAAADAwAAAAAAAAAzAAAAAAAAADMAAAAAAAAAMAMwAAAAAAAzAzAwAAAAADMzPzAAAAADA/M/MDAAAAMDMzMwMAAAAAMzMzAAAAAAAwMwMAAAAAAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Maleta"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

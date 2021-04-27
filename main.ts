@@ -64,6 +64,10 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             pause(100)
         }
     }
+    DOWN = false
+    UP = true
+    LEFT = false
+    RIGTH = false
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Carla`, function (sprite, location) {
     Martin = false
@@ -92,25 +96,24 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP8`, function (sprite, locat
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, mySprite, 69, 0)
-    music.pewPew.play()
+    if (UP) {
+        if (Martin) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Book`, mySprite, 0, -100)
+            music.pewPew.play()
+        } else if (Esteban) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, 69, 0)
+            music.pewPew.play()
+        } else if (Carla) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, 69, 0)
+            music.pewPew.play()
+        }
+    } else if (LEFT) {
+    	
+    } else if (DOWN) {
+    	
+    } else if (RIGTH) {
+    	
+    }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP11`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa3`)
@@ -140,10 +143,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTileeee`, function (sprite,
     statusbar2 = statusbars.create(16, 2, StatusBarKind.EnemyHealth)
     statusbar2.attachToSprite(demon)
     statusbar2.value = 200
-    statusbar3 = statusbars.create(20, 4, StatusBarKind.Energy)
+    statusbar3 = statusbars.create(16, 2, StatusBarKind.Energy)
     statusbar3.attachToSprite(demon2)
     statusbar3.value = 200
-    statusbar4 = statusbars.create(20, 4, StatusBarKind.Magic)
+    statusbar4 = statusbars.create(16, 2, StatusBarKind.Magic)
     statusbar4.attachToSprite(demo3)
     statusbar4.value = 200
     if (Map == 1) {
@@ -208,6 +211,10 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             pause(100)
         }
     }
+    DOWN = false
+    UP = false
+    LEFT = true
+    RIGTH = false
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP16`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa3`)
@@ -370,6 +377,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             pause(100)
         }
     }
+    DOWN = false
+    UP = false
+    LEFT = false
+    RIGTH = true
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP2`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa5`)
@@ -437,6 +448,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             pause(100)
         }
     }
+    DOWN = true
+    UP = false
+    LEFT = false
+    RIGTH = true
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles14, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa1`)
@@ -632,6 +647,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, locat
         }
     }
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    if (mySprite.overlapsWith(demon)) {
+    	
+    } else if (mySprite.overlapsWith(demon2)) {
+    	
+    } else if (mySprite.overlapsWith(demo3)) {
+    	
+    } else {
+    	
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa3`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 51))
@@ -663,6 +689,10 @@ let demon2: Sprite = null
 let demon: Sprite = null
 let projectile: Sprite = null
 let Reactor1: Sprite = null
+let RIGTH = false
+let LEFT = false
+let UP = false
+let DOWN = false
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
 let mySprite: Sprite = null

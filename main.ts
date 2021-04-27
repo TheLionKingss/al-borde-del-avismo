@@ -65,6 +65,11 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Carla`, function (sprite, location) {
+    Martin = false
+    Esteban = false
+    Carla = true
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP8`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa6`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 25))
@@ -126,6 +131,37 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP11`, function (sprite, loca
         if (Map == 3) {
             tiles.placeOnTile(Reactor1, tiles.getTileLocation(55, 88))
         }
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTileeee`, function (sprite, location) {
+    demon = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+    demon2 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+    demo3 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+    statusbar2 = statusbars.create(16, 2, StatusBarKind.EnemyHealth)
+    statusbar2.attachToSprite(demon)
+    statusbar2.value = 200
+    statusbar3 = statusbars.create(20, 4, StatusBarKind.Energy)
+    statusbar3.attachToSprite(demon2)
+    statusbar3.value = 200
+    statusbar4 = statusbars.create(20, 4, StatusBarKind.Magic)
+    statusbar4.attachToSprite(demo3)
+    statusbar4.value = 200
+    if (Map == 1) {
+        tiles.placeOnTile(demon, tiles.getTileLocation(73, 70))
+        tiles.placeOnTile(demon2, tiles.getTileLocation(29, 60))
+        tiles.placeOnTile(demo3, tiles.getTileLocation(121, 82))
+    } else if (Map == 3) {
+        tiles.placeOnTile(demon, tiles.getTileLocation(55, 118))
+        tiles.placeOnTile(demon2, tiles.getTileLocation(24, 59))
+        tiles.placeOnTile(demo3, tiles.getTileLocation(49, 18))
+    } else if (Map == 4) {
+        tiles.placeOnTile(demon, tiles.getTileLocation(46, 30))
+        tiles.placeOnTile(demon2, tiles.getTileLocation(32, 19))
+        tiles.placeOnTile(demo3, tiles.getTileLocation(59, 67))
+    } else if (Map == 5) {
+        tiles.placeOnTile(demon, tiles.getTileLocation(75, 113))
+        tiles.placeOnTile(demon2, tiles.getTileLocation(91, 69))
+        tiles.placeOnTile(demo3, tiles.getTileLocation(30, 110))
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP15`, function (sprite, location) {
@@ -243,60 +279,22 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`tile37`, function (sprite, lo
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles10, function (sprite, location) {
-    if (Map == 3) {
-        if (mySprite.tileKindAt(TileDirection.Left, sprites.dungeon.stairEast)) {
-            tiles.setTilemap(tilemap`level20`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(124, 70))
-            Map = 1
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-            tiles.setTilemap(tilemap`level23`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(66, 29))
-            Map = 4
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-            tiles.setTilemap(tilemap`level32`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(66, 45))
-            Map = 4
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-        }
-    } else if (Map == 4) {
-        if (mySprite.tileKindAt(TileDirection.Right, sprites.dungeon.stairWest)) {
-            tiles.setTilemap(tilemap`level21`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 106))
-            Map = 3
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-            tiles.setTilemap(tilemap`level24`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 119))
-            Map = 3
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-            tiles.setTilemap(tilemap`level33`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(73, 96))
-            Map = 1
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-            tiles.setTilemap(tilemap`level34`)
-            tiles.placeOnTile(mySprite, tiles.getTileLocation(96, 109))
-            Map = 5
-            pause(100)
-            music.playMelody("E - E - E - E - ", 640)
-        } else {
-        	
-        }
-    } else if (Map == 2) {
-    	
-    } else if (Map == 3) {
-    	
-    } else if (Map == 4) {
-    	
-    } else if (Map == 5) {
-    	
-    } else {
-    	
-    }
+    tiles.setTilemap(tilemap`Mapa2`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(82, 37))
+    Map = 2
+    pause(100)
+    music.playMelody("E - E - E - E - ", 640)
+})
+statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
+    demon.destroy(effects.spray, 500)
+})
+statusbars.onZero(StatusBarKind.Magic, function (status) {
+    demo3.destroy(effects.spray, 500)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Esteban`, function (sprite, location) {
+    Martin = false
+    Esteban = true
+    Carla = false
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP14`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa1`)
@@ -494,6 +492,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP5`, function (sprite, locat
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Martin`, function (sprite, location) {
+    Martin = true
+    Esteban = false
+    Carla = false
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP10`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa1`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(74, 98))
@@ -518,41 +521,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP10`, function (sprite, loca
             tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
             PersonajeSec2 = sprites.create(assets.image`Esteban2`, SpriteKind.Secondary)
             tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
-        }
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.saplingOak, function (sprite, location) {
-    tiles.setTilemap(tilemap`Mapa5`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(98, 10))
-    pause(100)
-    music.playMelody("E - E - E - E - ", 640)
-    if (Map == 3) {
-        Reactor1 = sprites.create(img`
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            f f f f f f f f f f f f f f f f 
-            `, SpriteKind.Player)
-        animation.runImageAnimation(
-        Reactor1,
-        assets.animation`AnimacionR`,
-        200,
-        true
-        )
-        if (Map == 3) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(55, 88))
         }
     }
 })
@@ -608,8 +576,33 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP9`, function (sprite, locat
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Interruptor`, function (sprite, location) {
+    if (controller.B.isPressed()) {
+        if (Map == 3 && REACTORSCOMPLETE == 0) {
+            REACTORSCOMPLETE += 1
+            game.showLongText("Has reiniciado el primer reactor", DialogLayout.Center)
+        } else if (Map == 4 && REACTORSCOMPLETE == 1) {
+            REACTORSCOMPLETE += 1
+            game.showLongText("Has reiniciado el segundo reactor", DialogLayout.Center)
+        } else if (Map == 5 && REACTORSCOMPLETE == 2) {
+            REACTORSCOMPLETE += 1
+            game.showLongText("Has reiniciado el tercero reactor", DialogLayout.Center)
+        } else if (Map == 5 && REACTORSCOMPLETE == 3) {
+            REACTORSCOMPLETE += 1
+            game.showLongText("Has reiniciado el cuarto reactor", DialogLayout.Center)
+        } else if (Map == 6 && REACTORSCOMPLETE == 4) {
+            game.showLongText("Has reiniciado todos los reactores", DialogLayout.Center)
+            REACTORSCOMPLETE += 1
+            pause(1000)
+            tiles.setTilemap(tilemap`Mapa1`)
+        }
+    }
+})
+statusbars.onZero(StatusBarKind.Energy, function (status) {
+    demon2.destroy(effects.spray, 500)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, location) {
-    tiles.setTilemap(tilemap`Mapa1`)
+    tiles.setTilemap(tilemap`Mapa5`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(98, 9))
     Map = 5
     Y_CheckPoint = 98
@@ -662,11 +655,18 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, locat
 })
 let Reactor2: Sprite = null
 let GAME_OVER = false
+let statusbar4: StatusBarSprite = null
+let statusbar3: StatusBarSprite = null
+let statusbar2: StatusBarSprite = null
+let demo3: Sprite = null
+let demon2: Sprite = null
+let demon: Sprite = null
 let projectile: Sprite = null
 let Reactor1: Sprite = null
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
 let mySprite: Sprite = null
+let REACTORSCOMPLETE = 0
 let X_CheckPoint = 0
 let Y_CheckPoint = 0
 let Map = 0
@@ -679,6 +679,7 @@ Esteban = false
 Map = 0
 Y_CheckPoint = 3
 X_CheckPoint = 3
+REACTORSCOMPLETE = 0
 tiles.setTilemap(tilemap`Seleccion`)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(X_CheckPoint, Y_CheckPoint))
 mySprite = sprites.create(assets.image`Martin2`, SpriteKind.Player)

@@ -820,6 +820,25 @@ namespace myImages {
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
 `;
+            case "image44":
+            case "demon":return img`
+. . . . . . . . . . . . . . . . 
+. . . . f f f f f f f . . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f 2 f f f 2 f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f . f . f . . f f . . . . 
+. . . . f . f . f . f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . f f f f f f f f f f f . . . 
+. . f f f f f f f f f f f f . . 
+. . . f f f f f f f f f f f . . 
+. . . . . f f f f f f . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`;
         }
         return null;
     })

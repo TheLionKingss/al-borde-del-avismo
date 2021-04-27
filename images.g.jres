@@ -214,6 +214,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Martin1"
     },
+    "image44": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA///w//8PAPAvD////w8A8P//8P///wDw/w//////APD///D///8A8C8P/////wDw/w/w////APD///////8AAP//////DwAAAAAAAP8PAAAAAAAA8A8AAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "demon"
+    },
     "anim1": {
         "namespace": "myAnimations",
         "id": "anim1",

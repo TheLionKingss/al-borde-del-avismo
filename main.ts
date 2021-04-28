@@ -101,18 +101,45 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             projectile = sprites.createProjectileFromSprite(assets.image`Book`, mySprite, 0, -100)
             music.pewPew.play()
         } else if (Esteban) {
-            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, 69, 0)
+            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, 0, -100)
             music.pewPew.play()
         } else if (Carla) {
-            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, 69, 0)
+            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, 0, -100)
             music.pewPew.play()
         }
     } else if (LEFT) {
-    	
+        if (Martin) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Book`, mySprite, -100, 0)
+            music.pewPew.play()
+        } else if (Esteban) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, -100, 0)
+            music.pewPew.play()
+        } else if (Carla) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, -100, 0)
+            music.pewPew.play()
+        }
     } else if (DOWN) {
-    	
+        if (Martin) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Book`, mySprite, 0, 100)
+            music.pewPew.play()
+        } else if (Esteban) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, 0, 100)
+            music.pewPew.play()
+        } else if (Carla) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, 0, 100)
+            music.pewPew.play()
+        }
     } else if (RIGTH) {
-    	
+        if (Martin) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Book`, mySprite, 100, 0)
+            music.pewPew.play()
+        } else if (Esteban) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Basket`, mySprite, 100, 0)
+            music.pewPew.play()
+        } else if (Carla) {
+            projectile = sprites.createProjectileFromSprite(assets.image`Maleta`, mySprite, 100, 0)
+            music.pewPew.play()
+        }
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP11`, function (sprite, location) {
@@ -293,10 +320,14 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles10, function (
     music.playMelody("E - E - E - E - ", 640)
 })
 statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
-    demon.destroy(effects.spray, 500)
+    info.changeScoreBy(1)
+    demon = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demon.setStayInScreen(false)
 })
 statusbars.onZero(StatusBarKind.Magic, function (status) {
-    demo3.destroy(effects.spray, 500)
+    info.changeScoreBy(1)
+    demo3 = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demo3.setStayInScreen(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Esteban`, function (sprite, location) {
     Martin = false
@@ -614,7 +645,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Interruptor`, function (sprit
     }
 })
 statusbars.onZero(StatusBarKind.Energy, function (status) {
-    demon2.destroy(effects.spray, 500)
+    info.changeScoreBy(1)
+    demon2 = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demon2.setStayInScreen(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa5`)
@@ -648,14 +681,15 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, locat
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    if (mySprite.overlapsWith(demon)) {
-    	
-    } else if (mySprite.overlapsWith(demon2)) {
-    	
-    } else if (mySprite.overlapsWith(demo3)) {
-    	
-    } else {
-    	
+    if (projectile.overlapsWith(demon)) {
+        statusbar2.value += -2
+        pause(500)
+    } else if (projectile.overlapsWith(demon2)) {
+        statusbar3.value += -2
+        pause(500)
+    } else if (projectile.overlapsWith(demo3)) {
+        statusbar4.value += -2
+        pause(500)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, location) {
@@ -710,6 +744,7 @@ Map = 0
 Y_CheckPoint = 3
 X_CheckPoint = 3
 REACTORSCOMPLETE = 0
+info.setScore(0)
 tiles.setTilemap(tilemap`Seleccion`)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(X_CheckPoint, Y_CheckPoint))
 mySprite = sprites.create(assets.image`Martin2`, SpriteKind.Player)

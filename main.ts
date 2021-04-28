@@ -440,7 +440,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP2`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
         }
     }
 })
@@ -618,7 +618,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP9`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
         }
     }
 })
@@ -640,7 +640,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Interruptor`, function (sprit
             game.showLongText("Has reiniciado todos los reactores", DialogLayout.Center)
             REACTORSCOMPLETE += 1
             pause(1000)
-            tiles.setTilemap(tilemap`Mapa1`)
+            tiles.setTilemap(tilemap`Dead`)
+            game.showLongText("Has ganado", DialogLayout.Center)
         }
     }
 })
@@ -676,7 +677,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
         }
     }
 })
@@ -713,6 +714,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, locat
         }
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    statusbar.value += -1
+})
 let Reactor2: Sprite = null
 let GAME_OVER = false
 let statusbar4: StatusBarSprite = null
@@ -729,6 +733,7 @@ let UP = false
 let DOWN = false
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
+let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 let REACTORSCOMPLETE = 0
 let X_CheckPoint = 0
@@ -750,7 +755,7 @@ tiles.placeOnTile(mySprite, tiles.getTileLocation(X_CheckPoint, Y_CheckPoint))
 mySprite = sprites.create(assets.image`Martin2`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 100)
 scene.cameraFollowSprite(mySprite)
-let statusbar = statusbars.create(16, 2, StatusBarKind.Health)
+statusbar = statusbars.create(16, 2, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.value = 200
 game.onUpdateInterval(500, function () {

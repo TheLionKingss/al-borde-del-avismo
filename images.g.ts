@@ -820,25 +820,6 @@ namespace myImages {
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
 `;
-            case "image44":
-            case "demon":return img`
-. . . . . . . . . . . . . . . . 
-. . . . f f f f f f f . . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f 2 f f f 2 f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f . f . f . . f f . . . . 
-. . . . f . f . f . f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . f f f f f f f f f f f . . . 
-. . f f f f f f f f f f f f . . 
-. . . f f f f f f f f f f f . . 
-. . . . . f f f f f f . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`;
             case "image45":
             case "Book":return img`
 . . . . . . . . . . . . . . . . 
@@ -898,20 +879,39 @@ namespace myImages {
 `;
             case "fAh%,+s*)K~cZqt7{C[z":
             case "Ball":return img`
+d 1 1 1 1 1 1 1 1 1 1 1 1 1 1 b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d f d f d d f d d d d b 
+1 d d d d d f d f f d d d d d b 
+1 d d d f f f f f d d d d d d b 
+1 d d d d d f 2 f d d d d d d b 
+1 d d d d f f f f f d d d d d b 
+1 d d d f d d f d f f d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+1 d d d d d d d d d d d d d d b 
+b b b b b b b b b b b b b b b b 
+`;
+            case "image44":
+            case "demon":return img`
 . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . f . f . . f . . . . . 
-. . . . . . f . f f . . . . . . 
-. . . . f f f f f . . . . . . . 
-. . . . . . f 2 f . . . . . . . 
-. . . . . f f f f f . . . . . . 
-. . . . f . . f . f f . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
+. . . . f f f f f f f . . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f 2 f f f 2 f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f . f . f . . f f . . . . 
+. . . . f . f . f . f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . . f f f f f f f f f . . . . 
+. . f f f f f f f f f f f . . . 
+. . f f f f f f f f f f f f . . 
+. . . f f f f f f f f f f f . . 
+. . . . . f f f f f f . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;

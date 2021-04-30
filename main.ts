@@ -13,19 +13,53 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP13`, function (sprite, loca
     if (Map == 1) {
         if (Martin) {
             PersconajeSec1 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Esteban) {
             PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Carla) {
             PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
+        }
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
+    if (controller.B.isPressed()) {
+        if (DialoG2 == false) {
+            game.showLongText("¿en serio, en dónde carajos estamos?", DialogLayout.Bottom)
+            game.showLongText("Me rindo, voy a ir a investigar!", DialogLayout.Bottom)
+            pause(1000)
+            tiles.setTilemap(tilemap`level38`)
+            game.showLongText("30 min después", DialogLayout.Full)
+            tiles.setTilemap(tilemap`Mapa1`)
+            game.showLongText("He recordado", DialogLayout.Bottom)
+            if (Martin) {
+                game.showLongText("Ya se que hacer Martin", DialogLayout.Bottom)
+            } else if (Esteban) {
+                game.showLongText("Ya se que hacer Esteban", DialogLayout.Bottom)
+            } else if (Carla) {
+                game.showLongText("Ya se que hacer Carla", DialogLayout.Bottom)
+            }
+            game.showLongText("Yo: Que está sucediendo", DialogLayout.Bottom)
+            game.showLongText("Estamos en esta escuela abandonada en la que hay unos reactores, no tengo ni idea de porque ", DialogLayout.Bottom)
+            game.showLongText("Pero al parecer algo malo pasó, con los reactores, en un experimento", DialogLayout.Bottom)
+            game.showLongText("Ve a reiniciarlos todos, o lo que sea que esté pasando en el lugar se extenderá", DialogLayout.Bottom)
+            game.showLongText("Aquí encontré una guia con el orden para reiniciarlos (que conveniente), pon MUCHA atención:", DialogLayout.Bottom)
+            game.showLongText("El primer reactor es el de la cocina", DialogLayout.Bottom)
+            game.showLongText("El segundo está en alguno los laboratorios", DialogLayout.Bottom)
+            game.showLongText("El tercero está en un bosque ", DialogLayout.Bottom)
+            game.showLongText("El cuarto está en un salon raro ", DialogLayout.Bottom)
+            game.showLongText("El quinto está en un cuarto extraño, no logro identificarlo ", DialogLayout.Bottom)
+            game.showLongText("Ahora Ve!, reinicia los reactores, destruye las abominaciones que estén en tu camino, confiamos en tí", DialogLayout.Bottom)
+            DialoG2 = true
+        } else if (DialoG2) {
+            game.showLongText("Confiamos en tí! a pesar de acabamos de conocerte...", DialogLayout.Bottom)
         }
     }
 })
@@ -92,6 +126,30 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP8`, function (sprite, locat
         )
         if (Map == 6) {
             tiles.placeOnTile(Reactor1, tiles.getTileLocation(35, 24))
+        }
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.floorLightMoss, function (sprite, location) {
+    statusbar.value += -0.5
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    if (controller.B.isPressed()) {
+        if (DialoG1 == false) {
+            game.showLongText("¿en dónde carajos estamos?", DialogLayout.Bottom)
+            game.showLongText("Tu: No tengo ni la más mínima idea…", DialogLayout.Bottom)
+            game.showLongText("¿y acaso tú quién eres?", DialogLayout.Bottom)
+            game.showLongText("Tu: ¿acaso eso importa? Lo único que importa es hallar una salida de acá", DialogLayout.Bottom)
+            game.showLongText("Importa si con ese dato podemos saber hasta lo más insignificante respecto porque nos hallamos encerrados en esta prisión abandonada", DialogLayout.Bottom)
+            if (Martin) {
+                game.showLongText("Tu: Pues si es obligatorio, entonces me llamo Martin, soy el típico adolescente deprimido, fui el primero que me desperté y tampoco tengo idea alguna respecto a porque carajos estamos aquí ¿alguna pregunta?", DialogLayout.Bottom)
+            } else if (Esteban) {
+                game.showLongText("Tu: Pues si es obligatorio, entonces me llamo Esteban, soy un estudiante normal que hace deporte, fui el primero que me desperté y tampoco tengo idea alguna respecto a porque carajos estamos aquí ¿alguna pregunta?", DialogLayout.Bottom)
+            } else if (Carla) {
+                game.showLongText("Tu: Pues si es obligatorio, entonces me llamo Carla, me gusta romper el sistema, fui la primero que me desperté y tampoco tengo idea alguna respecto a porque carajos estamos aquí ¿alguna pregunta?", DialogLayout.Bottom)
+            }
+            DialoG1 = true
+        } else if (DialoG2 == true) {
+            game.showLongText("Hola, ya terminaste?", DialogLayout.Bottom)
         }
     }
 })
@@ -285,33 +343,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP3`, function (sprite, locat
         }
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`tile37`, function (sprite, location) {
-    tiles.setTilemap(tilemap`Mapa1`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(15, 59))
-    Map = 1
-    Y_CheckPoint = 21
-    X_CheckPoint = 42
-    pause(100)
-    music.playMelody("E - E - E - E - ", 640)
-    if (Map == 1) {
-        if (Martin) {
-            PersconajeSec1 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
-            PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
-        } else if (Esteban) {
-            PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
-            PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
-        } else if (Carla) {
-            PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
-            PersonajeSec2 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
-        }
-    }
-})
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles10, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa2`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(82, 37))
@@ -321,12 +352,12 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles10, function (
 })
 statusbars.onZero(StatusBarKind.EnemyHealth, function (status) {
     info.changeScoreBy(1)
-    demon = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demon.setImage(assets.image`Ball`)
     demon.setStayInScreen(false)
 })
 statusbars.onZero(StatusBarKind.Magic, function (status) {
     info.changeScoreBy(1)
-    demo3 = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demo3.setImage(assets.image`Ball`)
     demo3.setStayInScreen(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Esteban`, function (sprite, location) {
@@ -345,19 +376,19 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP14`, function (sprite, loca
     if (Map == 1) {
         if (Martin) {
             PersconajeSec1 = sprites.create(assets.image`Esteban8`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Esteban) {
             PersconajeSec1 = sprites.create(assets.image`Martin2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla14`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Carla) {
             PersconajeSec1 = sprites.create(assets.image`Martin2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         }
     }
 })
@@ -484,6 +515,33 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     LEFT = false
     RIGTH = true
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`TileIzquierda`, function (sprite, location) {
+    tiles.setTilemap(tilemap`Mapa1`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(15, 59))
+    Map = 1
+    Y_CheckPoint = 21
+    X_CheckPoint = 42
+    pause(100)
+    music.playMelody("E - E - E - E - ", 640)
+    if (Map == 1) {
+        if (Martin) {
+            PersconajeSec1 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
+            PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
+        } else if (Esteban) {
+            PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
+            PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
+        } else if (Carla) {
+            PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
+            PersonajeSec2 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
+        }
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles14, function (sprite, location) {
     tiles.setTilemap(tilemap`Mapa1`)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(17, 25))
@@ -495,19 +553,19 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles14, function (
     if (Map == 1) {
         if (Martin) {
             PersconajeSec1 = sprites.create(assets.image`Esteban8`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Esteban) {
             PersconajeSec1 = sprites.create(assets.image`Martin2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla14`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Carla) {
             PersconajeSec1 = sprites.create(assets.image`Martin2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         }
     }
 })
@@ -522,19 +580,19 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP5`, function (sprite, locat
     if (Map == 1) {
         if (Martin) {
             PersconajeSec1 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Esteban) {
             PersconajeSec1 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Carla) {
             PersconajeSec1 = sprites.create(assets.image`Esteban1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Martin13`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         }
     }
 })
@@ -554,19 +612,19 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP10`, function (sprite, loca
     if (Map == 1) {
         if (Martin) {
             PersconajeSec1 = sprites.create(assets.image`Esteban2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla8`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Esteban) {
             PersconajeSec1 = sprites.create(assets.image`Martin1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Carla8`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         } else if (Carla) {
             PersconajeSec1 = sprites.create(assets.image`Martin1`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(14, 5))
+            tiles.placeOnTile(PersconajeSec1, tiles.getTileLocation(22, 57))
             PersonajeSec2 = sprites.create(assets.image`Esteban2`, SpriteKind.Secondary)
-            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(14, 10))
+            tiles.placeOnTile(PersonajeSec2, tiles.getTileLocation(22, 61))
         }
     }
 })
@@ -647,7 +705,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Interruptor`, function (sprit
 })
 statusbars.onZero(StatusBarKind.Energy, function (status) {
     info.changeScoreBy(1)
-    demon2 = sprites.create(assets.image`Ball`, SpriteKind.Enemy)
+    demon2.setImage(assets.image`Ball`)
     demon2.setStayInScreen(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, location) {
@@ -715,7 +773,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, locat
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    statusbar.value += -1
+    if (mySprite.overlapsWith(demon)) {
+        statusbar.value += -0.5
+    } else if (projectile.overlapsWith(demon2)) {
+        statusbar.value += -0.5
+    } else if (projectile.overlapsWith(demo3)) {
+        statusbar.value += -0.5
+    }
 })
 let Reactor2: Sprite = null
 let GAME_OVER = false
@@ -726,11 +790,13 @@ let demo3: Sprite = null
 let demon2: Sprite = null
 let demon: Sprite = null
 let projectile: Sprite = null
+let DialoG1 = false
 let Reactor1: Sprite = null
 let RIGTH = false
 let LEFT = false
 let UP = false
 let DOWN = false
+let DialoG2 = false
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
 let statusbar: StatusBarSprite = null
@@ -745,6 +811,7 @@ let Martin = false
 Martin = true
 Carla = false
 Esteban = false
+let CheckPoint = true
 Map = 0
 Y_CheckPoint = 3
 X_CheckPoint = 3
@@ -759,8 +826,7 @@ statusbar = statusbars.create(16, 2, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.value = 200
 game.onUpdateInterval(500, function () {
-    let CheckPoint: boolean;
-if (GAME_OVER == true) {
+    if (GAME_OVER == true) {
         tiles.setTilemap(tilemap`Dead`)
         game.showLongText("U dead", DialogLayout.Center)
         if (CheckPoint == true) {

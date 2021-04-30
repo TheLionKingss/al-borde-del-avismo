@@ -681,26 +681,67 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP9`, function (sprite, locat
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Interruptor`, function (sprite, location) {
+    music.stopAllSounds()
+    Musica_1 = 0
+    Musica_2 = 0
     if (controller.B.isPressed()) {
+        pause(100)
+        music.stopAllSounds()
+        music.setVolume(37)
         if (Map == 3 && REACTORSCOMPLETE == 0) {
             REACTORSCOMPLETE += 1
+            music.playMelody("C E G C5 G E C - ", 500)
             game.showLongText("Has reiniciado el primer reactor", DialogLayout.Center)
         } else if (Map == 4 && REACTORSCOMPLETE == 1) {
             REACTORSCOMPLETE += 1
+            music.playMelody("C E G C5 G E C - ", 500)
             game.showLongText("Has reiniciado el segundo reactor", DialogLayout.Center)
         } else if (Map == 5 && REACTORSCOMPLETE == 2) {
             REACTORSCOMPLETE += 1
-            game.showLongText("Has reiniciado el tercero reactor", DialogLayout.Center)
+            music.playMelody("C E G C5 G E C - ", 500)
+            game.showLongText("Has reiniciado el tercer reactor", DialogLayout.Center)
         } else if (Map == 5 && REACTORSCOMPLETE == 3) {
             REACTORSCOMPLETE += 1
+            music.playMelody("C E G C5 G E C - ", 500)
             game.showLongText("Has reiniciado el cuarto reactor", DialogLayout.Center)
         } else if (Map == 6 && REACTORSCOMPLETE == 4) {
             game.showLongText("Has reiniciado todos los reactores", DialogLayout.Center)
             REACTORSCOMPLETE += 1
+            music.playMelody("C E G C5 G E C - ", 500)
             pause(1000)
             tiles.setTilemap(tilemap`Dead`)
             game.showLongText("Has ganado", DialogLayout.Center)
+            Musica_3 = 3
+            Musica_4 = 3
+            Musica_5 = 3
+            music.playMelody("C - C - C D E G ", 120)
+            music.playMelody("F E D C - C D G ", 120)
+            music.playMelody("A G F E G F E D ", 120)
+            music.playMelody("F E D G C D C - ", 120)
+            while (Musica_3 > 0) {
+                music.playMelody("E - E - E F G C5 ", 120)
+                music.playMelody("A G F E D E F - ", 120)
+                music.playMelody("C5 B A G B A G F ", 120)
+                music.playMelody("A G F C5 E F E - ", 120)
+            }
+            while (Musica_5 > 0) {
+                music.setTempo(120)
+                music.playTone(131, music.beat(BeatFraction.Breve))
+                music.playTone(131, music.beat(BeatFraction.Breve))
+                music.playTone(175, music.beat(BeatFraction.Breve))
+                music.playTone(196, music.beat(BeatFraction.Breve))
+                music.playTone(220, music.beat(BeatFraction.Breve))
+                music.playTone(165, music.beat(BeatFraction.Breve))
+                music.playTone(147, music.beat(BeatFraction.Double))
+                music.playTone(196, music.beat(BeatFraction.Double))
+                music.playTone(131, music.beat(BeatFraction.Breve))
+            }
+            game.showLongText("No se supo mas de ti, pero al parecer escapaste con tus compañeros y eliminaste el \"abismo\"", DialogLayout.Center)
+            game.showLongText("Historia: Santiago Carreño - Musica: Samuel Osorio - Diseño: Santiago Charry y Santiago Obando - Programación: Juan Diego Méndez", DialogLayout.Center)
+            game.showLongText("Al Borde del Abismo", DialogLayout.Center)
         }
+        pause(2000)
+        music.setVolume(10)
     }
 })
 statusbars.onZero(StatusBarKind.Energy, function (status) {
@@ -775,12 +816,17 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP4`, function (sprite, locat
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (mySprite.overlapsWith(demon)) {
         statusbar.value += -0.5
-    } else if (projectile.overlapsWith(demon2)) {
+    } else if (mySprite.overlapsWith(demon2)) {
         statusbar.value += -0.5
-    } else if (projectile.overlapsWith(demo3)) {
+    } else if (mySprite.overlapsWith(demo3)) {
         statusbar.value += -0.5
     }
 })
+let Musica_5 = 0
+let Musica_4 = 0
+let Musica_3 = 0
+let Musica_2 = 0
+let Musica_1 = 0
 let Reactor2: Sprite = null
 let GAME_OVER = false
 let statusbar4: StatusBarSprite = null
@@ -825,10 +871,70 @@ scene.cameraFollowSprite(mySprite)
 statusbar = statusbars.create(16, 2, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.value = 200
+forever(function () {
+    music.setVolume(10)
+    Musica_2 = 12
+    music.playTone(831, music.beat(BeatFraction.Half))
+    music.playTone(880, music.beat(BeatFraction.Half))
+    music.playTone(831, music.beat(BeatFraction.Half))
+    music.playTone(784, music.beat(BeatFraction.Half))
+})
+forever(function () {
+    music.setVolume(10)
+    Musica_1 = 12
+    music.playTone(139, music.beat(BeatFraction.Whole))
+    music.playTone(156, music.beat(BeatFraction.Whole))
+    music.playTone(165, music.beat(BeatFraction.Quarter))
+    music.playTone(196, music.beat(BeatFraction.Quarter))
+    music.playTone(208, music.beat(BeatFraction.Half))
+})
+forever(function () {
+    if (Map != 1) {
+        PersconajeSec1 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Secondary)
+        PersonajeSec2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Secondary)
+    }
+})
+forever(function () {
+	
+})
 game.onUpdateInterval(500, function () {
     if (GAME_OVER == true) {
         tiles.setTilemap(tilemap`Dead`)
-        game.showLongText("U dead", DialogLayout.Center)
+        game.showLongText("Has Muerto...", DialogLayout.Center)
         if (CheckPoint == true) {
             if (Map == 1) {
                 tiles.setTilemap(tilemap`Mapa1`)

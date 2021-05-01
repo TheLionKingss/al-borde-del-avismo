@@ -222,18 +222,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP11`, function (sprite, loca
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTileeee`, function (sprite, location) {
-    demon = sprites.create(assets.image`demon`, SpriteKind.Enemy)
-    demon2 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
-    demo3 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
-    statusbar2 = statusbars.create(16, 2, StatusBarKind.EnemyHealth)
-    statusbar2.attachToSprite(demon)
-    statusbar2.value = 200
-    statusbar3 = statusbars.create(16, 2, StatusBarKind.Energy)
-    statusbar3.attachToSprite(demon2)
-    statusbar3.value = 200
-    statusbar4 = statusbars.create(16, 2, StatusBarKind.Magic)
-    statusbar4.attachToSprite(demo3)
-    statusbar4.value = 200
     if (Map == 1) {
         tiles.placeOnTile(demon, tiles.getTileLocation(73, 70))
         tiles.placeOnTile(demon2, tiles.getTileLocation(29, 60))
@@ -415,6 +403,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP7`, function (sprite, locat
 })
 statusbars.onZero(StatusBarKind.Health, function (status) {
     GAME_OVER = true
+    GAME_OVER = true
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Martin) {
@@ -461,7 +450,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP2`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 57))
+            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 55))
             Reactor2 = sprites.create(assets.tile`Locked`, SpriteKind.Player)
         }
         animation.runImageAnimation(
@@ -471,7 +460,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP2`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(33, 92))
         }
     }
 })
@@ -666,7 +655,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP9`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 57))
+            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 55))
             Reactor2 = sprites.create(assets.tile`Locked`, SpriteKind.Player)
         }
         animation.runImageAnimation(
@@ -676,7 +665,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP9`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(33, 92))
         }
     }
 })
@@ -766,7 +755,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 57))
+            tiles.placeOnTile(Reactor1, tiles.getTileLocation(69, 55))
             Reactor2 = sprites.create(assets.tile`Locked`, SpriteKind.Player)
         }
         animation.runImageAnimation(
@@ -776,7 +765,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`TP1`, function (sprite, locat
         true
         )
         if (Map == 5) {
-            tiles.placeOnTile(Reactor2, tiles.getTileLocation(31, 94))
+            tiles.placeOnTile(Reactor2, tiles.getTileLocation(33, 92))
         }
     }
 })
@@ -825,14 +814,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let Musica_5 = 0
 let Musica_4 = 0
 let Musica_3 = 0
+let Musica_2 = 0
+let Musica_1 = 0
 let Reactor2: Sprite = null
 let GAME_OVER = false
-let statusbar4: StatusBarSprite = null
-let statusbar3: StatusBarSprite = null
-let statusbar2: StatusBarSprite = null
-let demo3: Sprite = null
-let demon2: Sprite = null
-let demon: Sprite = null
 let projectile: Sprite = null
 let DialoG1 = false
 let Reactor1: Sprite = null
@@ -843,8 +828,12 @@ let DOWN = false
 let DialoG2 = false
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
-let Musica_2 = 0
-let Musica_1 = 0
+let statusbar4: StatusBarSprite = null
+let statusbar3: StatusBarSprite = null
+let statusbar2: StatusBarSprite = null
+let demo3: Sprite = null
+let demon2: Sprite = null
+let demon: Sprite = null
 let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 let REACTORSCOMPLETE = 0
@@ -871,64 +860,81 @@ scene.cameraFollowSprite(mySprite)
 statusbar = statusbars.create(16, 2, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.value = 200
-while (true) {
-    music.setVolume(10)
-    Musica_1 = 12
-    music.playTone(139, music.beat(BeatFraction.Whole))
-    music.playTone(156, music.beat(BeatFraction.Whole))
-    music.playTone(165, music.beat(BeatFraction.Quarter))
-    music.playTone(196, music.beat(BeatFraction.Quarter))
-    music.playTone(208, music.beat(BeatFraction.Half))
-}
-while (true) {
-    music.setVolume(10)
-    Musica_2 = 12
-    music.playTone(831, music.beat(BeatFraction.Half))
-    music.playTone(880, music.beat(BeatFraction.Half))
-    music.playTone(831, music.beat(BeatFraction.Half))
-    music.playTone(784, music.beat(BeatFraction.Half))
-}
-while (true) {
-    if (Map != 1) {
-        PersconajeSec1 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Secondary)
-        PersonajeSec2 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Secondary)
+demon = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+tiles.placeOnTile(demon, tiles.getTileLocation(0, 0))
+demon2 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+tiles.placeOnTile(demon2, tiles.getTileLocation(0, 0))
+demo3 = sprites.create(assets.image`demon`, SpriteKind.Enemy)
+tiles.placeOnTile(demo3, tiles.getTileLocation(0, 0))
+statusbar2 = statusbars.create(16, 2, StatusBarKind.EnemyHealth)
+statusbar2.attachToSprite(demon)
+statusbar2.value = 100
+statusbar3 = statusbars.create(16, 2, StatusBarKind.Energy)
+statusbar3.attachToSprite(demon2)
+statusbar3.value = 100
+statusbar4 = statusbars.create(16, 2, StatusBarKind.Magic)
+statusbar4.attachToSprite(demo3)
+statusbar4.value = 100
+forever(function () {
+    while (true) {
+        music.setVolume(10)
+        Musica_1 = 12
+        music.playTone(139, music.beat(BeatFraction.Whole))
+        music.playTone(156, music.beat(BeatFraction.Whole))
+        music.playTone(165, music.beat(BeatFraction.Quarter))
+        music.playTone(196, music.beat(BeatFraction.Quarter))
+        music.playTone(208, music.beat(BeatFraction.Half))
     }
-}
-game.onUpdateInterval(500, function () {
+    while (true) {
+        music.setVolume(10)
+        Musica_2 = 12
+        music.playTone(831, music.beat(BeatFraction.Half))
+        music.playTone(880, music.beat(BeatFraction.Half))
+        music.playTone(831, music.beat(BeatFraction.Half))
+        music.playTone(784, music.beat(BeatFraction.Half))
+    }
+    while (true) {
+        if (Map != 1) {
+            PersconajeSec1 = sprites.create(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, SpriteKind.Secondary)
+            PersonajeSec2 = sprites.create(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, SpriteKind.Secondary)
+        }
+    }
+})
+game.onUpdateInterval(200, function () {
     if (GAME_OVER == true) {
         tiles.setTilemap(tilemap`Dead`)
         game.showLongText("Has Muerto...", DialogLayout.Center)

@@ -538,22 +538,6 @@
         ],
         "displayName": "level35"
     },
-    "level1": {
-        "id": "level1",
-        "mimeType": "application/mkcd-tilemap",
-        "data": "MTAxMjAwMGEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDUwNDA0MDYwNzAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNTA0MDYwNzAwMDAwNDA0MDEwNDA0MDQwMjA0MDQwNDAzMDQwNDA0MDAwMDAwMDAwNTA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIwMjIwMDAwMDAwMDAwMDAwMDAwMjIwMDAwMDAwMDAwMDAwMDAyMjIwMDAwMDAwMDAwMDAwMDAwMDIwMDAwMDAwMDAwMDAwMDAwMDIwMDAwMDAwMDAwMDAwMDAyMjIwMDAwMDAwMDAwMDAwMDAwMjIwMjIyMjIyMjIyMjIyMjIwMjAwMDAwMDAwMDAwMDAwMDAwMA==",
-        "tileset": [
-            "myTiles.transparency16",
-            "myTiles.tile34",
-            "myTiles.tile35",
-            "myTiles.tile36",
-            "sprites.dungeon.floorLight2",
-            "sprites.dungeon.floorLight5",
-            "sprites.dungeon.stairWest",
-            "myTiles.tile37"
-        ],
-        "displayName": "Seleccion"
-    },
     "level36": {
         "id": "level36",
         "mimeType": "application/mkcd-tilemap",
@@ -2376,6 +2360,22 @@
             "sprites.dungeon.chestOpen"
         ],
         "displayName": "Mapa6"
+    },
+    "level1": {
+        "id": "level1",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMjAwMGEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDUwNDA0MDYwNzAwMDAwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNTA0MDYwNzAwMDAwNDA0MDEwNDA0MDQwMjA0MDQwNDAzMDQwNDA0MDAwMDAwMDAwNTA0MDQwNDA0MDQwNDA0MDQwNDA0MDQwNDA0MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIwMjIwMDAwMDAwMDAwMDAwMDAwMjIwMDAwMDAwMDAwMDAwMDAyMjIwMDAwMDAwMDAwMDAwMDAwMDIwMDAwMDAwMDAwMDAwMDAwMDIwMDAwMDAwMDAwMDAwMDAyMjIwMDAwMDAwMDAwMDAwMDAwMjIwMjIyMjIyMjIyMjIyMjIwMjAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "tileset": [
+            "myTiles.transparency16",
+            "myTiles.tile34",
+            "myTiles.tile35",
+            "myTiles.tile36",
+            "sprites.dungeon.floorLight2",
+            "sprites.dungeon.floorLight5",
+            "sprites.dungeon.stairWest",
+            "myTiles.tile37"
+        ],
+        "displayName": "Seleccion"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

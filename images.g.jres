@@ -229,11 +229,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Maleta"
     },
-    "fAh%,+s*)K~cZqt7{C[z": {
-        "data": "hwQQABAAAAAdERERERERsdHd3d3d3d290d3d3d3d3b3R3d3d3d3dvdHd3f3d39290d39/f3d3b3R3d3//93dvdHd/f3y39290d3d///d3b3R3d3f/d/dvdHd/d3d39290d3d3d3d3b3R3d3d3d3dvdHd3d3d3d290d3d3d3d3b27u7u7u7u7uw==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Ball"
-    },
     "image44": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA///w//8PAPAvD////w8A8P//8P///wDw/w//////APD///D///8A8C8P/////wDw/w/w////APD///////8AAP//////DwAAAAAAAP8PAAAAAAAA8A8AAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -248,6 +243,11 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "ci2"
+    },
+    "fAh%,+s*)K~cZqt7{C[z": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAADwAAAADw8PAAAAAAAAD//wAAAAAA8PDyDwAAAAAA//8AAAAAAAAP8A8AAAAA8AAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Ball"
     },
     "anim1": {
         "namespace": "myAnimations",

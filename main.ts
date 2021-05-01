@@ -825,8 +825,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let Musica_5 = 0
 let Musica_4 = 0
 let Musica_3 = 0
-let Musica_2 = 0
-let Musica_1 = 0
 let Reactor2: Sprite = null
 let GAME_OVER = false
 let statusbar4: StatusBarSprite = null
@@ -845,6 +843,8 @@ let DOWN = false
 let DialoG2 = false
 let PersonajeSec2: Sprite = null
 let PersconajeSec1: Sprite = null
+let Musica_2 = 0
+let Musica_1 = 0
 let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 let REACTORSCOMPLETE = 0
@@ -871,15 +871,7 @@ scene.cameraFollowSprite(mySprite)
 statusbar = statusbars.create(16, 2, StatusBarKind.Health)
 statusbar.attachToSprite(mySprite)
 statusbar.value = 200
-forever(function () {
-    music.setVolume(10)
-    Musica_2 = 12
-    music.playTone(831, music.beat(BeatFraction.Half))
-    music.playTone(880, music.beat(BeatFraction.Half))
-    music.playTone(831, music.beat(BeatFraction.Half))
-    music.playTone(784, music.beat(BeatFraction.Half))
-})
-forever(function () {
+while (true) {
     music.setVolume(10)
     Musica_1 = 12
     music.playTone(139, music.beat(BeatFraction.Whole))
@@ -887,8 +879,16 @@ forever(function () {
     music.playTone(165, music.beat(BeatFraction.Quarter))
     music.playTone(196, music.beat(BeatFraction.Quarter))
     music.playTone(208, music.beat(BeatFraction.Half))
-})
-forever(function () {
+}
+while (true) {
+    music.setVolume(10)
+    Musica_2 = 12
+    music.playTone(831, music.beat(BeatFraction.Half))
+    music.playTone(880, music.beat(BeatFraction.Half))
+    music.playTone(831, music.beat(BeatFraction.Half))
+    music.playTone(784, music.beat(BeatFraction.Half))
+}
+while (true) {
     if (Map != 1) {
         PersconajeSec1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -927,10 +927,7 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Secondary)
     }
-})
-forever(function () {
-	
-})
+}
 game.onUpdateInterval(500, function () {
     if (GAME_OVER == true) {
         tiles.setTilemap(tilemap`Dead`)
